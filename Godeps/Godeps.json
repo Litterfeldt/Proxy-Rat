@@ -1,0 +1,10 @@
+{
+	"ImportPath": "proxy-rat",
+	"GoVersion": "go1.2.1",
+	"Deps": [
+		{
+			"ImportPath": "github.com/elazarl/goproxy",
+			"Rev": "eb7fa0f750cff2a9f14ba93cdb08cab02ecd869d"
+		}
+	]
+}
