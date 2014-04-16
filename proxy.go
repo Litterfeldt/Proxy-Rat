@@ -11,11 +11,10 @@ func startProxy() {
 	proxy.Verbose = true
 
 	proxy.OnRequest().DoFunc(
-			func(r *http.Request,ctx *goproxy.ProxyCtx)(*http.Request,*http.Response) {
-					r.Header.Set("Host", r.Host)
-					return r,nil
-			}
-	)
+		func(r *http.Request, ctx *goproxy.ProxyCtx) (*http.Request, *http.Response) {
+			r.Header.Set("Host", r.Host)
+			return r, nil
+		})
 
 	log.Fatal(http.ListenAndServe(":"+*port, proxy))
 }
