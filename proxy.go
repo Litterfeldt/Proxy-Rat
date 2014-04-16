@@ -10,14 +10,6 @@ func startProxy() {
 	proxy := goproxy.NewProxyHttpServer()
 	proxy.Verbose = true
 
-	proxy.OnRequest(goproxy.DstHostIs("wake.up")).DoFunc(
-		func(r *http.Request, ctx *goproxy.ProxyCtx) (*http.Request, *http.Response) {
-			return r, goproxy.NewResponse(r,
-				goproxy.ContentTypeText, http.StatusOK,
-				"I'm up!")
-			return r, nil
-		})
-
 	proxy.OnRequest().DoFunc(
 		func(r *http.Request, ctx *goproxy.ProxyCtx) (*http.Request, *http.Response) {
 			r.Header.Set("Host", r.URL.Host)
