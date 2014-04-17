@@ -12,7 +12,9 @@ func startProxy() {
 
 	proxy.OnRequest().DoFunc(
 		func(r *http.Request, ctx *goproxy.ProxyCtx) (*http.Request, *http.Response) {
-			r.Header.Set("Host", r.URL.Host)
+			r.URL.Host = r.Header.Get("Proxy-Host")
+			r.Host = r.Header.Get("Proxy-Host")
+			//r.Header.Set("Host", r.Header.Get("Proxy-Host"))
 			return r, nil
 		})
 
