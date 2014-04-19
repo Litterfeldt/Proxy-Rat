@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "Proxy Rat",
+  "description": "Private Proxy Rat Interfacing extention",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "scripts": ["lodash.min.js","background.js"]
+  },
+
+   "permissions": [
+     "declarativeWebRequest",
+     "webRequest",
+     "webRequestBlocking",
+     "proxy",
+     "*://*/*",
+     "unlimitedStorage",
+     "background"
+   ]
+}
